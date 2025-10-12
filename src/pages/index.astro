@@ -1,10 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <BaseLayout>
+  <Hero
+    title="mind arc"
+    tagline="Vision, engineered."
+    bgUrl="/images/hero-bg.jpg"
+    primaryCta={{ href: "/games", label: "Explore Games" }}
+    secondaryCta={{ href: "/about", label: "Learn More" }}
+    height="80vh"
+    overlayOpacity={0.6}
+    align="center"
+  />
+
   <main style="padding: 2rem;">
-    <h1>Welcome to Mind Arc</h1>
-    <p>...coming soon</p>
+    <!-- optional: additional homepage content blocks -->
   </main>
 </BaseLayout>

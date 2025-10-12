@@ -1,81 +1,82 @@
 <style>
-.utility-bar {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 0.5rem 2rem;
-  background-color: rgba(17, 17, 17, 0.6);
-  color: #aaa;
-  font-size: 0.85rem;
-  font-family: sans-serif;
-  gap: 1rem;
-}
-
-.utility-left {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo img {
-  height: 24px;
-  width: 24px;
-}
-
-.logo span {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: .1em;
-  font-weight: 600;
-  color: #fff;
-}
-
-.utility-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  justify-self: end;
-}
-
-.utility-link {
-  color: #aaa;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.utility-link:hover {
-  color: #ffd700;
-}
-
-/* Optional mobile adjustments */
-@media (max-width: 768px) {
   .utility-bar {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: rgba(17, 17, 17, 0.6);
+    color: #aaa;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    gap: 1rem;
   }
 
-  .utility-left,
+  .utility-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo img {
+    height: 24px;
+    width: 24px;
+  }
+
+  .home{
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+  }
+
   .utility-right {
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-self: end;
   }
 
-}
-</style>
+  .utility-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
 
+  .utility-link:hover {
+    color: #ffd700;
+  }
+
+  /* Optional mobile adjustments */
+  @media (max-width: 768px) {
+    .utility-bar {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      text-align: center;
+    }
+
+    .utility-left,
+    .utility-right {
+      justify-content: center;
+    }
+  }
+</style>
 
 
 <div class="utility-bar">
   <div class="utility-left">
     <div class="logo">
       <img src="/favicon.png" alt="Mind Arc Logo" />
-      <span class="company-name">mind arc</span>
+      <span>
+              <a href="/" class="home">mind arc</a>
+      </span>
     </div>
   </div>
   <div class="utility-right">
