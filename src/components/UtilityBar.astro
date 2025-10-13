@@ -4,8 +4,12 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     padding: 0.5rem 2rem;
-    background-color: rgba(17, 17, 17, 0.6);
-    color: #aaa;
+
+    background-color: color-mix(in oklab, var(--surface) 85%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text);
     font-size: 0.85rem;
     font-family: sans-serif;
     gap: 1rem;
@@ -28,12 +32,12 @@
     width: 24px;
   }
 
-  .home{
+  .home {
     font-family: "Orbitron", sans-serif;
     font-size: 0.95rem;
     letter-spacing: 0.1em;
     font-weight: 600;
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
   }
 
@@ -44,44 +48,114 @@
     justify-self: end;
   }
 
-  .utility-link {
-    color: #ffffff;
+  .utility-link,
+  .theme-toggle {
+    color: var(--text);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
   }
 
-  .utility-link:hover {
-    color: #ffd700;
+  .utility-link:hover,
+  .theme-toggle:hover {
+    color: var(--accent);
   }
 
-  /* Optional mobile adjustments */
+  /* ---- Theme Toggle ---- */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: color-mix(in oklab, var(--surface) 70%, transparent);
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Contrast the toggle button against the current theme */
+:root[data-theme="dark"] .theme-toggle {
+  background: var(--text);  /* light bg */
+  color: var(--bg);         /* dark icon */
+}
+:root[data-theme="light"] .theme-toggle {
+  background: var(--text);  /* dark bg  ← CHANGED from var(--bg) */
+  color: var(--bg);         /* light icon ← CHANGED from var(--text) */
+}
+
+
+  .theme-toggle:hover {
+    box-shadow: 0 0 8px color-mix(in oklab, var(--accent) 30%, transparent);
+  }
+
+  .theme-icon {
+    width: 18px;
+    height: 18px;
+    color: currentColor;
+    transition: color 0.3s ease;
+  }
+
+  /* Mobile adjustments */
   @media (max-width: 768px) {
     .utility-bar {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto;
       text-align: center;
     }
-
     .utility-left,
     .utility-right {
       justify-content: center;
     }
   }
-</style>
 
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
 
 <div class="utility-bar">
   <div class="utility-left">
     <div class="logo">
       <img src="/favicon.png" alt="Mind Arc Logo" />
-      <span>
-              <a href="/" class="home">mind arc</a>
-      </span>
+      <span><a href="/" class="home">mind arc</a></span>
     </div>
   </div>
+
   <div class="utility-right">
     <a href="#" class="utility-link">Login</a>
-    <a href="#" class="utility-link">Theme</a>
+
+    <!-- Single-icon theme toggle -->
+    <button
+      type="button"
+      class="theme-toggle"
+      aria-label="Toggle color theme"
+      aria-pressed="false"
+      onclick="
+        (function(){
+          const r = document.documentElement;
+          const cur = r.getAttribute('data-theme') || 'light';
+          const next = cur === 'dark' ? 'light' : 'dark';
+          r.setAttribute('data-theme', next);
+          localStorage.setItem('ma-theme', next);
+          event.currentTarget.setAttribute('aria-pressed', String(next === 'dark'));
+        })()
+      "
+    >
+      <svg class="theme-icon" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'>
+        <path d='M12 4.75a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 12 4.75ZM12 17.5a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75ZM7.47 6.53a.75.75 0 0 1 1.06 0l.71.71a.75.75 0 0 1-1.06 1.06l-.71-.71a.75.75 0 0 1 0-1.06ZM15.47 14.53a.75.75 0 0 1 1.06 0l.71.71a.75.75 0 1 1-1.06 1.06l-.71-.71a.75.75 0 0 1 0-1.06ZM4.75 12a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1A.75.75 0 0 1 4.75 12ZM17.5 12a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75ZM7.47 17.47a.75.75 0 0 1 0-1.06l.71-.71a.75.75 0 0 1 1.06 1.06l-.71.71a.75.75 0 0 1-1.06 0ZM15.47 9.47a.75.75 0 0 1 0-1.06l.71-.71a.75.75 0 1 1 1.06 1.06l-.71.71a.75.75 0 0 1-1.06 0ZM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z'/>
+      </svg>
+      <span class="sr-only">Toggle theme</span>
+    </button>
+
     <a href="#" class="utility-link">v0.9.2</a>
   </div>
 </div>

@@ -1,22 +1,46 @@
 ---
-import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import UtilityBar from "../components/UtilityBar.astro";
-import Footer from "../components/Footer.astro"
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
   <head>
+    <!-- ① Prevent flash: run before any paint -->
+
+    <!-- ② Inline fallback colors: browser paints correct scheme before tokens load -->
+
+    <!-- ③ Meta -->
+    <meta name="color-scheme" content="light dark" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mind Arc</title>
-    
+
+    <script is:inline>
+      (() => {
+        const KEY = "ma-theme";
+        const saved = localStorage.getItem(KEY);
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = saved || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <!-- ④ Stylesheets: tokens first, globals second -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+
+    <!-- ⑤ Fonts -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Michroma&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Michroma&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <UtilityBar />
     <Navbar />

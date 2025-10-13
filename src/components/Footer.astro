@@ -2,31 +2,54 @@
   .footer {
     width: 100%;
     padding: 1rem 0;
-    background: rgba(0, 0, 0, 0.7);
+    /* theming: translucent surface w/ blur */
+    background: color-mix(in oklab, var(--surface) 85%, transparent);
     backdrop-filter: blur(8px);
-    color: #ccc;
+    color: var(--text);
     text-align: center;
     font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border);
     position: fixed;
     bottom: 0;
     left: 0;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease;
   }
 
   .footer strong {
-    color: #67E8FD; /* Mind Arc cyan accent */
+    color: var(--accent); /* Mind Arc accent in both themes */
   }
 
   .footer-subtext {
     font-size: 0.75rem;
-    color: #999;
+    color: color-mix(
+      in oklab,
+      var(--text) 70%,
+      transparent
+    ); /* subtle dim text */
     margin-top: 0.25rem;
+  }
+
+  /* Optional: if you have very vibrant backgrounds, add a soft inner top edge */
+  .footer::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: color-mix(in oklab, var(--border) 60%, transparent);
   }
 </style>
 
 <footer class="footer">
   <div class="footer-content">
     <p>🚧 <strong>In Development</strong> — A Mind Arc Games Production</p>
-    <p class="footer-subtext">© {new Date().getFullYear()} Mind Arc Games. All rights reserved.</p>
+    <p class="footer-subtext">
+      © {new Date().getFullYear()} Mind Arc Digital Entertainment LLC. All rights
+      reserved.
+    </p>
   </div>
 </footer>

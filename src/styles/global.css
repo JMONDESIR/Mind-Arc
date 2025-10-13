@@ -1,18 +1,107 @@
-/* src/styles/global.css */
+/* =========================================================
+   Global Styles — Mind Arc (Unified Theme)
+   ========================================================= */
 
+/* ========== Global Reset / Base ========== */
+:root {
+  color-scheme: light dark;
+
+  /* Light Theme */
+  --bg: #ffffff;
+  --text: #2a2f3a;
+  --surface: #f3f4f6;
+  --border: #d1d5db;
+  --accent: #67E8FD;
+  --accent-hover: #FFC100;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0f1117;
+  --text: #e8ecf1;
+  --surface: #1a1d24;
+  --border: #2a2f3a;
+  --accent: #FFC100;
+  --accent-hover: #67E8FD;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  background-image: url('/public/images/MindArc_Background.png');
+  min-height: 100%;
+}
+
+/* ========== Body ========== */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Background layering */
+  background-image:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--bg) 40%, transparent),
+      color-mix(in oklab, var(--bg) 40%, transparent)
+    ),
+    url('');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #aaa;
 
-  width: 100vw;        /* Ensure full viewport width */
-  overflow-x: hidden;  /* Prevent horizontal scroll */
+  /* Prevent layout jump with fixed footer */
+  padding-bottom: var(--footer-h);
+  overflow-x: hidden;
+
+  /* Smooth transitions for visual polish */
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+/* iOS/Android perf: disable fixed BG on small screens */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* Respect reduced motion for any future animations */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+/* ========== Global Elements ========== */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
