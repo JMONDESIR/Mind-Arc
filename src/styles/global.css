@@ -2,9 +2,16 @@
    Global Styles — Mind Arc (Unified Theme)
    ========================================================= */
 
-/* ========== Global Reset / Base ========== */
+/* ---------- Tokens ---------- */
 :root {
   color-scheme: light dark;
+
+  /* Sizing */
+  --footer-h: 80px; /* matches your fixed footer height; tune if needed */
+
+  /* Fonts */
+  --font-brand: "Orbitron", "Michroma", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Michroma", system-ui, "Segoe UI", Roboto, sans-serif;
 
   /* Light Theme */
   --bg: #ffffff;
@@ -15,7 +22,9 @@
   --accent-hover: #FFC100;
 }
 
-:root[data-theme="dark"] {
+/* Match the <html data-theme="dark"> attribute you set in BaseLayout */
+:root[data-theme="dark"],
+html[data-theme="dark"] {
   color-scheme: dark;
 
   --bg: #0f1117;
@@ -26,7 +35,7 @@
   --accent-hover: #67E8FD;
 }
 
-
+/* ---------- Resets ---------- */
 *,
 *::before,
 *::after {
@@ -40,57 +49,47 @@ body {
   min-height: 100%;
 }
 
-/* ========== Body ========== */
+/* ---------- Body ---------- */
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
 
-  /* Background layering */
-  background-image:
-    linear-gradient(
+  /* Background layering (remove empty URL to avoid inconsistent paints) */
+  background-image: linear-gradient(
       to bottom,
       color-mix(in oklab, var(--bg) 40%, transparent),
       color-mix(in oklab, var(--bg) 40%, transparent)
-    ),
-    url('');
+    );
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /* Prevent layout jump with fixed footer */
+  /* Prevent content hiding behind fixed footer */
   padding-bottom: var(--footer-h);
   overflow-x: hidden;
 
-  /* Smooth transitions for visual polish */
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* iOS/Android perf: disable fixed BG on small screens */
 @media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-  }
+  body { background-attachment: scroll; }
 }
 
-/* Respect reduced motion for any future animations */
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  body {
-    transition: none;
-  }
+  body { transition: none; }
 }
 
-/* ========== Global Elements ========== */
+/* ---------- Global Elements ---------- */
 a {
   color: var(--accent);
   text-decoration: none;
   transition: color 0.25s ease;
 }
-
-a:hover {
-  color: var(--accent-hover);
-}
+a:hover { color: var(--accent-hover); }
 
 button {
   background: var(--accent);
@@ -99,9 +98,18 @@ button {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
-
 button:hover {
   background: var(--accent-hover);
+  /* keeps contrast readable on both themes */
+  color: #000; /* Michroma is light; adjust if you prefer var(--text) */
+  border-color: color-mix(in oklab, var(--border) 70%, transparent);
+}
+
+/* ---------- Optional: no-JS dark fallback ---------- */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) :root {
+    color-scheme: dark;
+  }
 }
