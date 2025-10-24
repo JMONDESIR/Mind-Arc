@@ -20,17 +20,20 @@
   }
 
   /* Centered inner container */
-  .nav-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "center toggle";
-    align-items: center;
-    padding: 1.625rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "center toggle";
+  align-items: center;
+  padding: 1.625rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* NEW: anchor the absolute dropdown to this box */
+  position: relative;
+}
 
   /* Navigation links container */
   .nav-links {
@@ -88,47 +91,54 @@
     display: none;
   }
 
-  /* ===============================
-     Mobile Styles
-     =============================== */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background-color: var(--surface);
-      padding: 1rem 0;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      z-index: 99;
-      width: 100%;
-      border-top: 1px solid var(--border);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
+/* ===============================
+   Mobile Styles
+   =============================== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--surface);
+    padding: 1rem 0;
 
-    .menu-toggle:checked ~ .nav-links {
-      display: flex;
-    }
+    /* ✅ Key adjustments */
+    position: absolute;
+    top: calc(100% + 1px); /* was top: 100%; */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* was 99; keeps it above everything */
 
-    .nav-links a {
-      width: 100%;
-      padding: 0.75rem 1.5rem;
-      border-bottom: 1px solid
-        color-mix(in oklab, var(--border) 70%, transparent);
-      text-align: center;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .nav-container {
-      grid-template-columns: 1fr auto;
-      padding: 10px 5px;
-    }
+    width: 100%;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
+
+  /* Checkbox toggle behavior */
+  .menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid
+      color-mix(in oklab, var(--border) 70%, transparent);
+    text-align: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-container {
+    grid-template-columns: 1fr auto;
+    padding: 10px 5px;
+
+    /* ✅ Add this line */
+    position: relative; /* anchors the dropdown */
+  }
+}
 </style>
 
 <nav class="nav-wrapper">
