@@ -1,20 +1,493 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
+import Layout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout>
-  
-  <Hero
-    title="mind arc"
-    tagline="Vision, engineered."
-    bgUrl="/images/hero-bg.jpg"
-    primaryCta={{ href: "/games", label: "Explore Games" }}
-    secondaryCta={{ href: "/about", label: "Learn More" }}
-    height="80vh"
-    overlayOpacity={0.6}
-    align="center"
-  
--->
-  <main style="padding: 2rem;"></main>
-</BaseLayout>
+<Layout title="Mind Arc Games | Home">
+  <main class="home-page">
+    <div class="home-shell">
+      <section class="hero">
+        <p class="eyebrow">Mind Arc Games</p>
+        <h1>Forging Worlds Beyond the Stars</h1>
+        <p class="hero-subtitle">
+          Independent sci-fi game development, immersive worldbuilding, and the
+          future of <strong>Phoenix Vector</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="/phoenix-vector" class="btn btn-primary"
+            >Explore Phoenix Vector</a
+          >
+          <a href="/contact" class="btn btn-secondary">Contact</a>
+        </div>
+      </section>
+
+      <section class="panel intro-panel">
+        <div class="panel-header">
+          <p class="section-kicker">Studio</p>
+          <h2>Welcome to Mind Arc Games</h2>
+        </div>
+
+        <p>
+          Mind Arc Games is an independent creative studio focused on building
+          cinematic science-fiction experiences with strong visual identity,
+          memorable atmosphere, and a distinct sense of world.
+        </p>
+
+        <p>
+          At the center of that mission is <strong>Phoenix Vector</strong> — a high-intensity
+          side-scrolling space combat experience set within a larger universe of conflict,
+          mystery, and stellar ambition.
+        </p>
+      </section>
+
+      <section class="panel feature-panel">
+        <div class="feature-grid">
+          <div class="feature-copy">
+            <p class="section-kicker">Featured Project</p>
+            <h2>Phoenix Vector</h2>
+            <p>
+              Enter the Aurelia System and engage in fast, precise combat across
+              a war-torn frontier of drifting stations, hostile fleets, and
+              glowing celestial horizons.
+            </p>
+            <p>
+              Phoenix Vector combines arcade-inspired action with a bold sci-fi
+              aesthetic, layered atmosphere, and a universe designed to expand.
+            </p>
+
+            <div class="feature-actions">
+              <a href="/phoenix-vector" class="btn btn-primary">View Project</a>
+              <a href="/support" class="btn btn-secondary">Support</a>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-inner">
+              <p class="feature-label">Current Focus</p>
+              <h3>Arcade Combat. Sci-Fi Identity. Expanding Universe.</h3>
+              <p>
+                Built for players who love sharp action, strong style, and the
+                feeling of stepping into a larger mythos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-links">
+        <article class="nav-card">
+          <p class="section-kicker">Studio</p>
+          <h3>About Mind Arc</h3>
+          <p>
+            Learn more about the creative direction, philosophy, and identity
+            behind the studio.
+          </p>
+          <a href="/about">Visit About Page</a>
+        </article>
+
+        <article class="nav-card">
+          <p class="section-kicker">Legal</p>
+          <h3>Privacy & Terms</h3>
+          <p>
+            Review the Privacy Policy and Terms of Use for Phoenix Vector and
+            Mind Arc Games.
+          </p>
+          <a href="/privacy-policy">Read Policies</a>
+        </article>
+
+        <article class="nav-card">
+          <p class="section-kicker">Contact</p>
+          <h3>Get in Touch</h3>
+          <p>
+            Reach out for support, business inquiries, press questions, or
+            general feedback.
+          </p>
+          <a href="/contact">Open Contact Page</a>
+        </article>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  :root {
+    --bg: #040814;
+    --bg-soft: rgba(10, 18, 36, 0.82);
+    --panel-border: rgba(103, 232, 249, 0.18);
+    --text: #dbe7f5;
+    --text-soft: #9fb2c9;
+    --heading: #f8fbff;
+    --cyan: #67e8f9;
+    --cyan-strong: #22d3ee;
+    --gold: #ffc857;
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .home-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 2rem 1.25rem;
+    background:
+      radial-gradient(
+        circle at top center,
+        rgba(34, 211, 238, 0.14),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 200, 87, 0.08),
+        transparent 18%
+      ),
+      linear-gradient(180deg, #081120 0%, #040814 55%, #02050d 100%);
+    overflow: hidden;
+  }
+
+  .home-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.08)
+    );
+    pointer-events: none;
+  }
+
+  .home-shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 1rem 1rem 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 5.75rem);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--heading);
+    text-shadow:
+      0 0 18px rgba(103, 232, 249, 0.14),
+      0 0 42px rgba(103, 232, 249, 0.08);
+  }
+
+  .hero-subtitle {
+    max-width: 760px;
+    margin: 1.4rem auto 0;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  .hero-subtitle strong {
+    color: var(--heading);
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    padding: 0.95rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    color: #031018;
+    background: linear-gradient(135deg, var(--cyan), #a5f3fc);
+    box-shadow: 0 10px 30px rgba(103, 232, 249, 0.22);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 16px 34px rgba(103, 232, 249, 0.3);
+  }
+
+  .btn-secondary {
+    color: var(--heading);
+    border: 1px solid rgba(103, 232, 249, 0.22);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(103, 232, 249, 0.42);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+  }
+
+  .panel {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 22px;
+    background: linear-gradient(
+      180deg,
+      rgba(14, 25, 47, 0.88),
+      rgba(7, 13, 26, 0.94)
+    );
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+  }
+
+  .panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(103, 232, 249, 0.35),
+      rgba(255, 200, 87, 0.18),
+      rgba(103, 232, 249, 0.1)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .panel-header {
+    margin-bottom: 1rem;
+  }
+
+  .section-kicker {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .panel h2,
+  .nav-card h3,
+  .feature-card h3 {
+    margin: 0;
+    color: var(--heading);
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .panel h2 {
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+  }
+
+  .panel p,
+  .nav-card p,
+  .feature-card p {
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 1rem;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.85fr;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .feature-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .feature-copy h2 {
+    margin-bottom: 1rem;
+  }
+
+  .feature-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .feature-card {
+    display: flex;
+    min-height: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(103, 232, 249, 0.14);
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(103, 232, 249, 0.12),
+        transparent 35%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.02)
+      );
+    overflow: hidden;
+  }
+
+  .feature-card-inner {
+    padding: 1.5rem;
+    align-self: center;
+  }
+
+  .feature-label {
+    margin: 0 0 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .feature-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+  }
+
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .nav-card {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(103, 232, 249, 0.14);
+    background: linear-gradient(
+      180deg,
+      rgba(14, 25, 47, 0.82),
+      rgba(7, 13, 26, 0.9)
+    );
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+
+  .nav-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at top right,
+      rgba(103, 232, 249, 0.08),
+      transparent 35%
+    );
+    pointer-events: none;
+  }
+
+  .nav-card h3 {
+    margin-bottom: 0.85rem;
+    font-size: 1.2rem;
+  }
+
+  .nav-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition:
+      color 0.2s ease,
+      text-shadow 0.2s ease;
+  }
+
+  .nav-card a:hover {
+    color: #a5f3fc;
+    text-shadow: 0 0 14px rgba(103, 232, 249, 0.22);
+  }
+
+  @media (max-width: 900px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .quick-links {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-page {
+      padding: 3rem 1rem;
+    }
+
+    .hero {
+      padding: 2.5rem 0.25rem 2rem;
+    }
+
+    .hero h1 {
+      line-height: 1.02;
+    }
+
+    .panel {
+      padding: 1.4rem;
+      border-radius: 18px;
+    }
+
+    .panel::before {
+      border-radius: 18px;
+    }
+
+    .btn {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .hero-actions,
+    .feature-actions {
+      flex-direction: column;
+    }
+
+    .nav-card {
+      padding: 1.25rem;
+      border-radius: 18px;
+    }
+  }
+</style>

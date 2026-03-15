@@ -1,17 +1,13 @@
 ---
-import "../styles/global.css"; // <-- this bundles it correctly
+import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import UtilityBar from "../components/UtilityBar.astro";
 import Footer from "../components/Footer.astro";
+
 ---
 
 <html lang="en">
   <head>
-    <!-- ① Prevent flash: run before any paint -->
-
-    <!-- ② Inline fallback colors: browser paints correct scheme before tokens load -->
-
-    <!-- ③ Meta -->
     <meta name="color-scheme" content="light dark" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,17 +18,13 @@ import Footer from "../components/Footer.astro";
         const KEY = "ma-theme";
         const saved = localStorage.getItem(KEY);
         const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         ).matches;
         const theme = saved || (prefersDark ? "dark" : "light");
         document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
 
-    <!-- ④ Stylesheets: tokens first, globals second -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
-
-    <!-- ⑤ Fonts -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,9 +35,36 @@ import Footer from "../components/Footer.astro";
   </head>
 
   <body>
-    <UtilityBar />
-    <Navbar />
-    <slot />
-    <Footer />
+    <div class="site-shell">
+      <UtilityBar />
+      
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
   </body>
 </html>
+
+<style>
+  :global(html, body) {
+    margin: 0;
+    min-height: 100%;
+  }
+
+  :global(body) {
+    min-height: 100vh;
+  }
+
+  .site-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-main {
+    flex: 1;
+    display: block;
+  }
+</style>
