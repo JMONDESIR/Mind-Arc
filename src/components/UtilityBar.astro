@@ -244,38 +244,5 @@
     <a href="/contact" class="nav-link">Contact</a>
   </nav>
 
-  <div class="utility-right">
-    <a href="#" class="utility-link">Login</a>
 
-    <button
-      type="button"
-      class="theme-toggle"
-      aria-label="Toggle color theme"
-      aria-pressed="false"
-      onclick="
-        (function(){
-          const r = document.documentElement;
-          const cur = r.getAttribute('data-theme') || 'light';
-          const next = cur === 'dark' ? 'light' : 'dark';
-          r.setAttribute('data-theme', next);
-          localStorage.setItem('ma-theme', next);
-          event.currentTarget.setAttribute('aria-pressed', String(next === 'dark'));
-        })()
-      "
-    >
-      <svg
-        class="theme-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path
-          d="M12 4.75a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 12 4.75ZM12 17.5a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75ZM7.47 6.53a.75.75 0 0 1 1.06 0l.71.71a.75.75 0 0 1-1.06 1.06l-.71-.71a.75.75 0 0 1 0-1.06ZM15.47 14.53a.75.75 0 0 1 1.06 0l.71.71a.75.75 0 1 1-1.06 1.06l-.71-.71a.75.75 0 0 1 0-1.06ZM4.75 12a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1A.75.75 0 0 1 4.75 12ZM17.5 12a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75ZM7.47 17.47a.75.75 0 0 1 0-1.06l.71-.71a.75.75 0 0 1 1.06 1.06l-.71.71a.75.75 0 0 1-1.06 0ZM15.47 9.47a.75.75 0 0 1 0-1.06l.71-.71a.75.75 0 1 1 1.06 1.06l-.71.71a.75.75 0 0 1-1.06 0ZM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"
-        ></path>
-      </svg>
-      <span class="sr-only">Toggle theme</span>
-    </button>
-
-    <a href="#" class="utility-link">v1.0.1</a>
-  </div>
 </div>
