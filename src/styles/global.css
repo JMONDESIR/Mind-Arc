@@ -120,16 +120,33 @@ button:hover {
   display: none !important;
 }
 
-a,
-button,
-.btn {
-  transition: none !important;
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
-a:hover,
-button:hover,
-.btn:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  filter: none !important;
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }

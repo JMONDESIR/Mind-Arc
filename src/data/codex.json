@@ -8,7 +8,7 @@
     "image": "/images/phoenixCoreLogo.png"
   },
   {
-    "title": "Phoenix Core",
+    "title": "Neo Terra Defense Core",
     "href": "/phoenixvector/codex/phoenix-core/",
     "status": "Declassified",
     "archiveEntry": "002",
@@ -18,7 +18,7 @@
   {
     "title": "Aurelia System",
     "href": "/phoenixvector/codex/aurelia-system/",
-    "status": "Classified",
+    "status": "Declassified",
     "archiveEntry": "003",
     "description": "Binary star system containing Neo Terra, Selara, Ironreach, and the major theaters of conflict.",
     "image": "/images/codex/aurelia-system.jpg"
@@ -26,7 +26,7 @@
   {
     "title": "Neo Terra",
     "href": "/phoenixvector/codex/neo-terra/",
-    "status": "Queued",
+    "status": "Declassified",
     "archiveEntry": "004",
     "description": "Industrial population center and one of the most strategically important worlds in the Aurelia System.",
     "image": "/images/codex/neo-terra.jpg"
