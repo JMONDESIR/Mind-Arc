@@ -1,0 +1,302 @@
+/* =========================================================
+   Phoenix Vector Codex — N.T.D.C. Terminal
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top, rgba(103, 232, 249, 0.08), transparent 34rem),
+    linear-gradient(180deg, #06111b 0%, #02070d 55%, #010409 100%);
+  color: var(--codex-text);
+}
+
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Phoenix";
+  src: url("/fonts/Phoenix.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --codex-bg: #02070d;
+
+  --ntdc-hardware-yellow: #f6b400;
+  --ntdc-hardware-yellow-bright: #ffc21a;
+  --ntdc-hardware-shadow: rgba(0, 0, 0, 0.75);
+
+  --codex-panel: #0b0c0e;
+  --codex-panel-soft: #111315;
+
+  --codex-cyan: #67e8f9;
+  --codex-cyan-soft: rgba(103, 232, 249, 0.55);
+  --codex-cyan-faint: rgba(103, 232, 249, 0.16);
+
+  --codex-operational: #22ff55;
+
+  --codex-text: #d9fbff;
+  --codex-muted: rgba(217, 251, 255, 0.68);
+  --codex-dim: rgba(217, 251, 255, 0.42);
+
+  --codex-danger: #ff6b6b;
+  --codex-warning: #ffd166;
+
+  --codex-radius: 18px;
+  --codex-radius-sm: 6px;
+
+  --codex-border: 1px solid rgba(246, 180, 0, 0.85);
+  --codex-glow: inset 0 0 42px rgba(0, 0, 0, 0.85);
+
+  --codex-font-ui: "Rajdhani", system-ui, sans-serif;
+  --codex-font-terminal: "Share Tech Mono", "Courier New", monospace;
+
+  --codex-shell-width: 1120px;
+  --codex-frame-width: 1280px;
+  --codex-shell-padding: clamp(1rem, 3vw, 2rem);
+  --codex-section-gap: clamp(1rem, 3vw, 1.75rem);
+}
+
+/* ---------- Hardware Frame ---------- */
+
+.ntdc-frame {
+  width: min(100% - 1rem, var(--codex-frame-width));
+  margin: clamp(1rem, 4vw, 3rem) auto;
+  padding: clamp(0.75rem, 2.5vw, 1.25rem);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--ntdc-hardware-yellow-bright),
+      var(--ntdc-hardware-yellow)
+    );
+
+  border-radius: var(--codex-radius);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 2px var(--ntdc-hardware-shadow);
+
+  position: relative;
+}
+
+.ntdc-frame__header,
+.ntdc-frame__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  font-family: var(--codex-font-terminal);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.72);
+  padding-inline: 0.25rem;
+}
+
+.ntdc-frame__header {
+  margin-bottom: 0.65rem;
+}
+
+.ntdc-frame__footer {
+  margin-top: 0.65rem;
+}
+
+.ntdc-frame__id {
+  text-align: right;
+}
+
+/* ---------- Terminal Screen ---------- */
+
+.ntdc-terminal {
+  width: min(calc(100% - clamp(1rem, 4vw, 2rem)), var(--codex-shell-width));
+  margin: 0 auto;
+  padding: var(--codex-shell-padding);
+
+  color: var(--codex-text);
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 255, 255, 0.045),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 28%
+    ),
+    var(--codex-panel);
+
+  border: var(--codex-border);
+  border-radius: var(--codex-radius-sm);
+  box-shadow: var(--codex-glow);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.ntdc-terminal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.02) 50%,
+      rgba(0, 0, 0, 0.055) 50%
+    );
+
+  background-size: 100% 4px;
+  opacity: 0.28;
+}
+
+.ntdc-terminal::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(246, 180, 0, 0.32);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* ---------- Header ---------- */
+
+.ntdc-terminal__header {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  gap: 0.85rem;
+}
+
+.ntdc-terminal__eyebrow {
+  margin: 0 0 0.25rem;
+  font-family: var(--codex-font-terminal);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--codex-cyan);
+}
+
+.ntdc-terminal__title {
+  margin: 0;
+  font-family: "Phoenix", sans-serif;
+  font-size: clamp(1.8rem, 8vw, 3.25rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ntdc-terminal__status {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-family: var(--codex-font-terminal);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--codex-muted);
+}
+
+.ntdc-terminal__status-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--codex-operational);
+  box-shadow: 0 0 12px var(--codex-operational);
+}
+
+/* ---------- Dividers ---------- */
+
+.ntdc-terminal__divider {
+  position: relative;
+  z-index: 1;
+  height: 1px;
+  margin: var(--codex-section-gap) 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(246, 180, 0, 0.18),
+    rgba(246, 180, 0, 0.55),
+    rgba(246, 180, 0, 0.18),
+    transparent
+  );
+}
+
+/* ---------- Screen ---------- */
+
+/* ---------- Screen ---------- */
+
+.ntdc-terminal__screen {
+  position: relative;
+  z-index: 1;
+  min-height: 48vh;
+}
+
+.ntdc-terminal__screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: url("/images/phoenixCoreLogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.030;
+}
+
+.ntdc-terminal__screen > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Footer ---------- */
+
+.ntdc-terminal__footer {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  font-family: var(--codex-font-terminal);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--codex-dim);
+}
+
+/* ---------- Tablet / Desktop ---------- */
+
+@media (min-width: 700px) {
+  .ntdc-frame {
+    width: min(100% - 2rem, var(--codex-frame-width));
+  }
+
+  .ntdc-terminal__header {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .ntdc-terminal__footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

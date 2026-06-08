@@ -1,0 +1,47 @@
+---
+import "../../styles/codex.css";
+
+const {
+  title = "N.T.D.C. Terminal",
+  subtitle = "Phoenix Vector Archive",
+  status = "Archive Node Online",
+} = Astro.props;
+---
+
+<section class="ntdc-frame">
+  <div class="ntdc-frame__header">
+    <span class="ntdc-frame__brand">N.T.D.C.</span>
+    <span class="ntdc-frame__id">TERMINAL ID // PV-001</span>
+  </div>
+
+  <section class="ntdc-terminal" aria-label={subtitle}>
+    <header class="ntdc-terminal__header">
+      <div class="ntdc-terminal__identity">
+        <p class="ntdc-terminal__eyebrow">{title}</p>
+        <h1 class="ntdc-terminal__title">{subtitle}</h1>
+      </div>
+
+      <div class="ntdc-terminal__status">
+        <span class="ntdc-terminal__status-dot"></span>
+        <span>{status}</span>
+      </div>
+    </header>
+
+    <div class="ntdc-terminal__divider"></div>
+
+    <main class="ntdc-terminal__screen">
+      <slot />
+    </main>
+
+    <div class="ntdc-terminal__divider"></div>
+
+    <footer class="ntdc-terminal__footer">
+      <span>STATUS: ONLINE</span>
+      <span>AURELIA COMMAND NETWORK</span>
+    </footer>
+  </section>
+
+  <div class="ntdc-frame__footer">
+    <span>SYSTEM STATUS // OPERATIONAL</span>
+  </div>
+</section>

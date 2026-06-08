@@ -1,0 +1,34 @@
+[
+  {
+    "id": "personnel",
+    "title": "Personnel",
+    "status": "Online",
+    "fileCount": 3,
+    "description": "Command personnel and active mission contacts.",
+    "source": "/data/codex/personnel.json"
+  },
+  {
+    "id": "fighters",
+    "title": "Fighters",
+    "status": "Online",
+    "fileCount": 2,
+    "description": "Active fighter platforms and deployment-ready craft.",
+    "source": "/data/codex/fighters.json"
+  },
+  {
+    "id": "vessels",
+    "title": "Vessels",
+    "status": "Online",
+    "fileCount": 1,
+    "description": "Capital vessels and major strategic craft.",
+    "source": "/data/codex/vessels.json"
+  },
+  {
+    "id": "organizations",
+    "title": "Organizations",
+    "status": "Online",
+    "fileCount": 1,
+    "description": "Military and strategic command structures.",
+    "source": "/data/codex/organizations.json"
+  }
+]

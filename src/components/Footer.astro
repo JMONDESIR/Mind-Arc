@@ -50,39 +50,44 @@ const year = new Date().getFullYear();
     padding-top: 0.75rem;
     border-top: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
   }
-  
+
   .social-links {
-  margin-top: 0.9rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-}
+    margin-top: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
 
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.8;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
 
-.social-links a:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
+  .social-links a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
 
-.social-links img {
-  width: 22px;
-  height: 22px;
+  .social-links img {
+    width: 22px;
+    height: 22px;
 
-  /* convert black icons to cyan */
-  filter: brightness(0) saturate(100%) invert(82%) sepia(19%) saturate(1170%)
-    hue-rotate(154deg) brightness(98%) contrast(101%);
+    /* convert black icons to cyan */
+    filter: brightness(0) saturate(100%) invert(82%) sepia(19%) saturate(1170%)
+      hue-rotate(154deg) brightness(98%) contrast(101%);
 
-  opacity: 0.85;
-  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
-}
+    opacity: 0.85;
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease,
+      opacity 0.25s ease;
+  }
 
   .link-grid {
     list-style: none;
@@ -114,21 +119,21 @@ const year = new Date().getFullYear();
   }
 
   .footer-contact {
-  margin-top: 0.75rem;
-  font-size: 0.8rem;
-  color: color-mix(in oklab, var(--text) 75%, transparent);
-}
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: color-mix(in oklab, var(--text) 75%, transparent);
+  }
 
-.footer-contact a {
-  color: var(--accent);
-  text-decoration: none;
-  margin-left: 0.25rem;
-  transition: color 0.25s ease;
-}
+  .footer-contact a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-left: 0.25rem;
+    transition: color 0.25s ease;
+  }
 
-.footer-contact a:hover {
-  color: color-mix(in oklab, var(--accent) 80%, white);
-}
+  .footer-contact a:hover {
+    color: color-mix(in oklab, var(--accent) 80%, white);
+  }
 
   @media (max-width: 600px) {
     .footer {
@@ -164,9 +169,7 @@ const year = new Date().getFullYear();
 
 <footer class="footer" role="contentinfo">
   <div class="footer-content">
-    <p class="build-note">
-      A Mind Arc Games Production
-    </p>
+    <p class="build-note">A Mind Arc Games Production</p>
 
     <nav class="footer-nav" aria-label="Footer links">
       <ul class="link-grid">
@@ -175,29 +178,31 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-<p class="footer-contact">
-  For business inquiries: 
-  <a href="mailto:contact@mindarcgames.com">contact@mindarcgames.com</a>
-</p>
+    <p class="footer-contact">
+      For business inquiries:
+      <a href="mailto:contact@mindarcgames.com">contact@mindarcgames.com</a>
+    </p>
 
-<div class="social-links" aria-label="Social media links">
-  <a href="https://youtube.com/@mindarcgames" target="_blank" rel="noopener">
-    <img src="/icons/youtube.svg" alt="YouTube" />
-  </a>
+    <div class="social-links" aria-label="Social media links">
+      <a
+        href="https://youtube.com/@mindarcgames"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="/icons/youtube.svg" alt="YouTube" />
+      </a>
 
-  <a href="https://tiktok.com/@mindarcgames" target="_blank" rel="noopener">
-    <img src="/icons/tiktok.svg" alt="TikTok" />
-  </a>
+      <a href="https://tiktok.com/@mindarcgames" target="_blank" rel="noopener">
+        <img src="/icons/tiktok.svg" alt="TikTok" />
+      </a>
 
-  <a href="https://twitter.com/mindarcgames" target="_blank" rel="noopener">
-    <img src="/icons/x.svg" alt="X / Twitter" />
-  </a>
-</div>
+      <a href="https://twitter.com/mindarcgames" target="_blank" rel="noopener">
+        <img src="/icons/x.svg" alt="X / Twitter" />
+      </a>
+    </div>
 
     <p class="footer-subtext">
       © {year} Mind Arc Digital Entertainment LLC. All rights reserved.
     </p>
-
   </div>
-
 </footer>

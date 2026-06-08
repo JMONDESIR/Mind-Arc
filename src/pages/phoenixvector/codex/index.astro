@@ -1,35 +1,33 @@
 ---
-import CodexLayout from "../../../layouts/CodexLayout.astro";
-import CodexEntry from "../../../components/codex/CodexEntry.astro";
-import codexEntries from "../../../data/codex.json";
-
-const currentPath = "/phoenixvector/codex/";
-
-const currentEntry = codexEntries.find(
-  (entry) => entry.href === currentPath
-);
-
-const meta = [
-  { label: "Classification", value: "Public Archive" },
-  { label: "Region", value: "Aurelia System" },
-  { label: "Signal", value: "Stable" },
-  { label: "Status", value: "Expanding" },
-];
+import NTDCTerminal from "../../../components/codex/NTDCTerminal.astro";
+import codexHome from "../../../data/codex-home.json";
 ---
 
-<CodexLayout
-  pageTitle="Phoenix Vector Codex"
-  currentPath={currentPath}
+<NTDCTerminal
+  title="N.T.D.C. Terminal"
+  subtitle="Command Archive"
+  status="Status: Online"
 >
-  {currentEntry && (
-    <CodexEntry
-      entry={currentEntry}
-      meta={meta}
-      featuredLabel="Featured Record"
-      featuredTitle="The Aurelia System"
-      featuredText="A binary star theater anchored by Neo Terra, Selara, and the strategic zones that define the Phoenix Vector conflict."
-      exitHref="/phoenixvector/"
-      exitLabel="Exit"
-    />
-  )}
-</CodexLayout>
+  <section class="codex-home">
+    <div class="codex-home__intro">
+      <p class="codex-kicker">Archive Directory</p>
+      <h2>Codex Home</h2>
+      <p>Select a record category to access N.T.D.C. archive files.</p>
+    </div>
+
+    <div class="codex-menu-grid" aria-label="Codex categories">
+      {
+        codexHome.map((item) => (
+          <a class="codex-menu-card" href={`/phoenixvector/codex/${item.id}/`}>
+            <span class="codex-menu-card__status">{item.status}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <span class="codex-menu-card__meta">
+              {item.fileCount} {item.fileCount === 1 ? "File" : "Files"}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</NTDCTerminal>
