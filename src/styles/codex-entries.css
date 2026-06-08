@@ -1,0 +1,141 @@
+.codex-home {
+  width: 100%;
+}
+
+.codex-menu-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.codex-menu-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 180px;
+
+  padding: 1rem;
+
+  text-decoration: none;
+  color: var(--codex-text);
+
+  border: 1px solid rgba(103, 232, 249, 0.22);
+  border-left: 4px solid var(--codex-cyan);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(103, 232, 249, 0.08),
+      rgba(103, 232, 249, 0.02)
+    );
+
+  transition:
+    transform 120ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.codex-menu-card::before {
+  content: "▶";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.9rem;
+
+  color: var(--codex-cyan);
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.codex-menu-card:hover,
+.codex-menu-card:focus-visible {
+  transform: scale(1.02);
+
+  border-color: rgba(103, 232, 249, 0.7);
+
+  box-shadow:
+    0 0 20px rgba(103, 232, 249, 0.15),
+    inset 0 0 12px rgba(103, 232, 249, 0.05);
+}
+
+.codex-menu-card__status {
+  font-family: "Phoenix", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:#ffbd00;
+}
+
+.codex-menu-card__title {
+  margin: 0.35rem 0 0.6rem;
+
+  font-family: "Phoenix", var(--codex-font-display, monospace);
+  font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--codex-text);
+  text-shadow: 0 0 10px rgba(103, 232, 249, 0.22);
+}
+
+.codex-menu-card p {
+  margin: 0;
+  max-width: 48ch;
+
+  font-family: var(--codex-font-body, system-ui, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.45;
+
+  color: var(--codex-muted);
+}
+
+.codex-menu-card p {
+  margin: 0;
+  flex: 1;
+  line-height: 1.45;
+  font-family: Orbitron;
+}
+
+.codex-menu-card__meta {
+
+  margin-top: 1rem;
+
+  align-self: flex-start;
+
+  padding: 0.3rem 0.55rem;
+
+  border: 1px solid rgba(246, 180, 0, 0.45);
+
+  color: var(--ntdc-hardware-yellow-bright);
+  background: rgba(246, 180, 0, 0.08);
+
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: "Phoenix", var(--codex-font-display, monospace);
+}
+
+@media (max-width: 640px) {
+  .codex-menu-card {
+    grid-template-columns: 1fr;
+  }
+
+  .codex-menu-card__meta {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.25rem;
+  }
+
+  @media (min-width: 900px) {
+  .codex-menu-grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+
+    max-width: 900px;
+    margin-inline: auto;
+  }
+}
+}

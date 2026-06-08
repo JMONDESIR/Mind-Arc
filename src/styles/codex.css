@@ -51,7 +51,7 @@ body {
   --codex-danger: #ff6b6b;
   --codex-warning: #ffd166;
 
-  --codex-radius: 18px;
+  --codex-radius: 8px;
   --codex-radius-sm: 6px;
 
   --codex-border: 1px solid rgba(246, 180, 0, 0.85);

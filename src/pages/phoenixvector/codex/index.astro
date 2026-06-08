@@ -1,27 +1,23 @@
 ---
 import NTDCTerminal from "../../../components/codex/NTDCTerminal.astro";
 import codexHome from "../../../data/codex-home.json";
+import "../../../styles/codex-entries.css";
 ---
 
-<NTDCTerminal
-  title="N.T.D.C. Terminal"
-  subtitle="Command Archive"
-  status="Status: Online"
->
+<NTDCTerminal title="" subtitle="Command Archive" status="Status: Online">
   <section class="codex-home">
-    <div class="codex-home__intro">
-      <p class="codex-kicker">Archive Directory</p>
-      <h2>Codex Home</h2>
-      <p>Select a record category to access N.T.D.C. archive files.</p>
-    </div>
+    <div class="codex-home__intro"></div>
 
     <div class="codex-menu-grid" aria-label="Codex categories">
       {
         codexHome.map((item) => (
           <a class="codex-menu-card" href={`/phoenixvector/codex/${item.id}/`}>
             <span class="codex-menu-card__status">{item.status}</span>
-            <h3>{item.title}</h3>
+
+            <h2 class="codex-menu-card__title">{item.title}</h2>
+
             <p>{item.description}</p>
+
             <span class="codex-menu-card__meta">
               {item.fileCount} {item.fileCount === 1 ? "File" : "Files"}
             </span>

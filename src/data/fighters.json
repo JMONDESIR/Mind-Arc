@@ -1,6 +1,6 @@
 [
   {
-    "title": "Phoenix PH-Δ1",
+    "title": "Sagitta SG-Δ1",
     "slug": "phoenix",
     "href": "/phoenixvector/codex/fighters/phoenix/",
     "status": "Declassified",
@@ -13,7 +13,7 @@
     "title": "Aquila AQ-Δ2",
     "slug": "aquila",
     "href": "/phoenixvector/codex/fighters/aquila/",
-    "status": "Classified",
+    "status": "Declassified",
     "archiveEntry": "007-B",
     "parent": "fighters",
     "description": "Precision assault fighter featuring the Talon Cannon system and advanced targeting capabilities.",
