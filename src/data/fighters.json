@@ -1,32 +1,38 @@
 [
   {
-    "title": "Sagitta SG-Δ1",
-    "slug": "phoenix",
-    "href": "/phoenixvector/codex/fighters/phoenix/",
+    "name": "Sagitta",
+    "class": "Phoenix",
+    "designation": "SG-Delta-1",
+    "slug": "sagitta",
+    "href": "/phoenixvector/codex/fighters/sagitta/",
     "status": "Declassified",
-    "archiveEntry": "007-A",
+    "archiveEntry": "F-001",
     "parent": "fighters",
     "description": "Flagship Phoenix-class interceptor equipped with the IC-50 Incendiary Cannon and adaptive combat systems.",
-    "image": "/images/PhoenixRed.png"
+    "image": "/images/sagitta.png"
   },
   {
-    "title": "Aquila AQ-Δ2",
+    "name": "Aquila",
+    "class": "Phoenix",
+    "designation": "AQ-Delta-2",
     "slug": "aquila",
     "href": "/phoenixvector/codex/fighters/aquila/",
     "status": "Declassified",
-    "archiveEntry": "007-B",
+    "archiveEntry": "F-002",
     "parent": "fighters",
     "description": "Precision assault fighter featuring the Talon Cannon system and advanced targeting capabilities.",
-    "image": "/images/codex/fighters/aquila.jpg"
+    "image": "/images/aquila.png"
   },
   {
-    "title": "Tyco TX-Δ3",
-    "slug": "tyco",
-    "href": "/phoenixvector/codex/fighters/tyco/",
-    "status": "Classified",
-    "archiveEntry": "007-C",
+    "name": "Kestrel",
+    "designation": "KX-4",
+    "class": "Vanguard",
+    "slug": "kestrel",
+    "href": "/phoenixvector/codex/fighters/kestrel/",
+    "status": "Declassified",
+    "archiveEntry": "F-003",
     "parent": "fighters",
-    "description": "Heavy assault platform designed for sustained engagements, featuring reinforced hull architecture and high-output weapon systems.",
-    "image": "/images/codex/fighters/tyco.jpg"
+    "description": "Light assault platform designed for sustained engagements, featuring reinforced hull architecture, but low-output weapon systems.",
+    "image": "/images/kestrel.png"
   }
 ]

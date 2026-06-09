@@ -39,7 +39,7 @@
 }
 
 .codex-menu-card::before {
-  content: "▶";
+  content: "";
   position: absolute;
   left: 0.45rem;
   top: 0.9rem;

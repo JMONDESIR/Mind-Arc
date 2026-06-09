@@ -68,6 +68,98 @@ body {
 
 /* ---------- Hardware Frame ---------- */
 
+/* =========================================================
+   Codex Hard Navigation
+   ========================================================= */
+
+.codex-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.codex-nav__button {
+  font-family: Phoenix;
+  background-color: #06111b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(246, 180, 0, 0.72);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, #3a3a3a 0%, #2f2f2f 100%);
+  color: #dcf6fb;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+    0 3px 0 rgba(0, 0, 0, 0.55);
+}
+
+.codex-nav__button:hover,
+.codex-nav__button:focus-visible {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 2px 0 rgba(0, 0, 0, 0.55);
+}
+
+.codex-nav__button:active {
+  transform: translateY(3px);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.45);
+}
+
+.ntdc-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.ntdc-button__image {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.ntdc-button__label {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--ntdc-hardware-yellow-bright);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(246, 180, 0, 0.4);
+
+  pointer-events: none;
+}
+
+.ntdc-button:hover .ntdc-button__label,
+.ntdc-button:focus-visible .ntdc-button__label {
+  color: #fff3bf;
+}
+
+.ntdc-button:hover {
+  filter: brightness(1.08);
+}
+
 .ntdc-frame {
   width: min(100% - 1rem, var(--codex-frame-width));
   margin: clamp(1rem, 4vw, 3rem) auto;

@@ -1,0 +1,135 @@
+/* =========================================================
+   Phoenix Vector Codex — Fighter Entry Dossier
+   ========================================================= */
+
+.fighter-entry {
+  display: grid;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.fighter-entry__hero {
+  overflow: hidden;
+  border: 1px solid rgba(103, 232, 249, 0.28);
+  border-radius: 18px;
+  background: #05090f;
+}
+
+.fighter-entry__hero img {
+  display: block;
+  width: 100%;
+  max-height: 22rem;
+  object-fit: cover;
+}
+
+.fighter-entry__content {
+  padding: 1rem;
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-radius: 18px;
+  background: rgba(2, 7, 13, 0.62);
+}
+
+.fighter-entry__eyebrow {
+  color: var(--codex-cyan);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.fighter-entry__header h1 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 0.95;
+  font-family: Phoenix;
+  text-transform: uppercase;
+}
+
+.fighter-entry__designation {
+  margin-top: 0.55rem;
+  color: var(--codex-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fighter-entry__description {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1.25rem;
+  color: var(--codex-text);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.fighter-entry__meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.fighter-entry__meta-card {
+  padding: 0.8rem;
+  border: 1px solid rgba(103, 232, 249, 0.18);
+  background: rgba(103, 232, 249, 0.055);
+}
+
+.fighter-entry__meta-label {
+  display: block;
+  color: var(--codex-dim);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fighter-entry__meta-value {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--codex-text);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fighter-entry__back {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1.25rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(103, 232, 249, 0.32);
+  background: rgba(2, 7, 13, 0.72);
+  color: var(--codex-cyan);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.fighter-entry__back:hover,
+.fighter-entry__back:focus-visible {
+  border-color: rgba(103, 232, 249, 0.75);
+  background: rgba(103, 232, 249, 0.1);
+}
+
+@media (min-width: 820px) {
+  .fighter-entry {
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    align-items: stretch;
+  }
+
+  .fighter-entry__hero {
+    min-height: 100%;
+  }
+
+  .fighter-entry__hero img {
+    height: 100%;
+    max-height: none;
+  }
+
+  .fighter-entry__content {
+    padding: 1.25rem;
+  }
+
+  .fighter-entry__meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
