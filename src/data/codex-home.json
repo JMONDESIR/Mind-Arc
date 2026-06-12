@@ -24,11 +24,11 @@
     "source": "/data/codex/vessels.json"
   },
   {
-    "id": "organizations",
-    "title": "Organizations",
+    "id": "factions",
+    "title": "Factions",
     "status": "Online",
     "fileCount": 1,
     "description": "",
-    "source": "/data/codex/organizations.json"
+    "source": "/data/codex/factions.json"
   }
 ]
